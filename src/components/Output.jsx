@@ -55,7 +55,7 @@ const Output = ({editorRef, language}) => {
                     output.error ? (
                         <Text color="red.500">{output.error}</Text>  // If there's an error, display it
                     ) : output.output ? (
-                        <Text>{output.output}</Text>  // If there's no error, display output
+                                <pre style={{ whiteSpace: "pre-wrap" }}>{output.output}</pre> // Preserve formatting
                     ) : (
                         <Text>Click 'Run Code' to see the output.</Text>  // Default message if neither error nor output exists
                     )
