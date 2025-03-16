@@ -1,13 +1,15 @@
 import axios from 'axios';
 
+const baseURL = import.meta.env.VITE_BASE_URL || 'http://localhost:8000';
+
 const API = axios.create({
-    baseURL: 'http://192.168.2.6:8000/'
+    baseURL: baseURL,
 });
 
 export const executeCode = async (sourceCode, language) => {
     try {
-        const response = await API.post('/execute', { 
-            command: sourceCode
+        const response = await API.post('/run_spider', { 
+            code: sourceCode
         });
         return response.data;
     } catch (error) {
